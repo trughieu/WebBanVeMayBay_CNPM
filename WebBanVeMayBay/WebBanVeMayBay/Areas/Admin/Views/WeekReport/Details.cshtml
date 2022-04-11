@@ -1,0 +1,91 @@
+﻿@model WebBanVeMayBay.Models.WeekReport
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAd.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>WeekReport</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Day)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Day)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Revenue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Revenue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Created_By)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Created_By)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Created_At)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Created_At)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Update_By)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Update_By)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Update_At)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Update_At)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

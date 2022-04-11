@@ -1,0 +1,63 @@
+﻿@model WebBanVeMayBay.Models.WeekReport
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAd.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model => model.Created_At)
+    @Html.HiddenFor(model => model.Created_By)
+
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-md-6">
+                    <strong class="text-uppercase text-danger">Chỉnh sửa báo cáo</strong>
+                </div>
+                <div class="col-md-6 text-end">
+                    <a href="@Url.Action("Index", "WeekReport")" class="btn btn-sm- btn-success">Trở lại danh sách</a>
+                    <button type="submit" class="btn btn-sm btn-success">Lưu</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body p-3">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="form-group">
+                        <label> Tên báo cáo</label>
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label>Ngày</label>
+                        @Html.EditorFor(model => model.Day, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Day, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label>Tỷ lệ</label>
+                        @Html.TextAreaFor(model => model.Rate, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Rate, "", new { @class = "text-danger" })
+                    </div>
+                </div>      
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Số vé bán</label>
+                        @Html.TextAreaFor(model => model.Number, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Number, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label> Doanh thu</label>
+                        @Html.TextAreaFor(model => model.Revenue, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Revenue, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

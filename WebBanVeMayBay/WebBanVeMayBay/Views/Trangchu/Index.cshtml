@@ -1,0 +1,132 @@
+﻿@*@model WebBanVeMayBay.Models.Product*@
+@model WebBanVeMayBay.Models.ProductForHomePageViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutSite.cshtml";
+}
+<body>
+    <div class="container-fluid px-1 py-5 mx-auto">
+        <div class="row d-flex justify-content-center">
+            <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+                <div class="card">
+                    <h3 class="text-center mb-4">Tìm kiếm chuyến bay</h3>
+                    @*<form action="~/Search/" class="form-card" method="get">*@
+                    @using (Html.BeginForm("Search", "Trangchu", FormMethod.Get))
+                    {
+                        <div class="row justify-content-between text-left">
+                            <div class="form-group col-sm-6 flex-column d-flex">
+                                <label class="form-control-label px-3"> Điểm khởi hành </label>
+                                <select name="SeletedPlanFromId">
+                                    <option selected>Chọn điểm khởi hành</option>
+                                    @*@foreach (var productCategory in Model.ListProductCategory)
+                                        {
+                                            <option value="@productCategory.PlanFrom">@productCategory.PlanFrom</option>
+                                        }*@
+                                    <option value="Hà Nội">Hà Nội</option>
+                                    <option value="TP Hồ Chí Minh">TP Hồ Chí Minh</option>
+                                    <option value="Đà Nẵng">Đà Nẵng</option>
+                                    <option value="Nha Trang">Nha Trang</option>
+                                    <option value="Đà Lạt">Đà Lạt</option>
+                                    <option value="Hải Phòng">Hải Phòng</option>
+                                    <option value="Phú Quốc">Phú Quốc</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-sm-6 flex-column d-flex">
+                                <label class="form-control-label px-3"> Điểm đến </label>
+                                <select name="SeletedPlanToId">
+                                    <option selected>Chọn điểm đến</option>
+                                    @*@foreach (var productCategory in Model.ListProductCategory)
+                                        {
+                                            <option value="@productCategory.PlanTo">@productCategory.PlanTo</option>
+                                        }*@
+                                    <option value="Hà Nội">Hà Nội</option>
+                                    <option value="TP Hồ Chí Minh">TP Hồ Chí Minh</option>
+                                    <option value="Đà Nẵng">Đà Nẵng</option>
+                                    <option value="Nha Trang">Nha Trang</option>
+                                    <option value="Đà Lạt">Đà Lạt</option>
+                                    <option value="Hải Phòng">Hải Phòng</option>
+                                    <option value="Phú Quốc">Phú Quốc</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row justify-content-between text-left">
+                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Ngày khởi hành<span class="text-danger"> *</span></label> <input type="date" id="date" name="date" placeholder="" onblur="validate(3)"> </div>
+                            <div class="form-group col-sm-6 flex-column d-flex pt-sm-4"> <button name="submit" type="submit" value="Tìm kiếm" class="btn-block btn-success align-content-md-center mt-2">Tìm kiếm</button></div>
+                        </div>
+                    }
+                    @*</form>*@
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-md-6">
+                    <strong class="text-uppercase">Danh sách chuyến bay hiện có</strong>
+                </div>
+            </div>
+        </div>
+        <div class="card-body p-3">
+            <table class="table table-bordered table-hover">
+                <thread>
+                    <tr>
+                        <th>Tên chuyến bay</th>
+                        <th>Loại chuyến bay</th>
+                        <th>Ngày khởi hành</th>
+                        <th>Giờ khởi hành</th>
+                        <th>Điểm đi</th>
+                        <th>Điểm đến</th>
+                        <th>Thời gian bay (Phút)</th>
+                        <th>Số ghế trống</th>
+                        <th>Số ghế đặt</th>
+                        <th>Giá vé</th>
+                        <th class="text-center">Đặt mua vé</th>
+                    </tr>
+                </thread>
+                <tbody>
+                    @foreach (var item in Model.ListProductCategory)
+                    {
+                        <tr>
+                            @*<th class="text-center">
+                                    <a href="@Url.Action("DatVe","Trangchu")" id="datVe" name="Datve" type="submit" class="btn btn-sm- btn-success">Đặt vé</a>
+                                </th>*@
+                            <th>
+                                @item.Name
+                            </th>
+
+                            <th>@item.CatName</th>
+
+                            <th>@item.Date</th>
+                            <th>@item.Time</th>
+
+                            <th>@item.PlanFrom</th>
+
+                            <th>@item.PlanTo</th>
+
+                            <th>@item.OnAir</th>
+
+                            <th>@item.Seat1</th> @*cần xử lý tính số ghế trống và số ghế đặt*@
+                            <th>@item.Seat2</th>
+                            <th>@item.Price</th>
+                            <th class="text-center">
+                                <a class="btn btn-sm btn-success"
+                                   href="@Url.Action("DatVe", "TrangChu",
+                                    new {id = item.Id, name = item.Name, date = item.Date, time = item.Time, Price = item.Price})"> Đặt Vé</a>
+                            </th>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+
+

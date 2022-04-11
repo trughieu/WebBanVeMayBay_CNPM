@@ -1,0 +1,588 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{99FF7025-9ED6-42AF-9D50-02501BB0F8E8}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebBanVeMayBay</RootNamespace>
+    <AssemblyName>WebBanVeMayBay</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44354</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Library\DatVe\css\bootstrap.min.css" />
+    <Content Include="Library\DatVe\css\style.css" />
+    <Content Include="Library\DatVe\Datve.css" />
+    <Content Include="Library\DatVe\img\background.jpg" />
+    <Content Include="Library\font-awesome.css" />
+    <Content Include="Library\home.css" />
+    <Content Include="Library\home1.js" />
+    <Content Include="Library\home2.css" />
+    <Content Include="Library\home3.js" />
+    <Content Include="Library\login.js" />
+    <Content Include="Library\login1.js" />
+    <Content Include="Library\login2.css" />
+    <Content Include="Library\login3.css" />
+    <Content Include="Library\style.css" />
+    <Content Include="Public\css\css\all.css" />
+    <Content Include="Public\css\css\all.min.css" />
+    <Content Include="Public\css\css\brands.css" />
+    <Content Include="Public\css\css\brands.min.css" />
+    <Content Include="Public\css\css\fontawesome.css" />
+    <Content Include="Public\css\css\fontawesome.min.css" />
+    <Content Include="Public\css\css\regular.css" />
+    <Content Include="Public\css\css\regular.min.css" />
+    <Content Include="Public\css\css\solid.css" />
+    <Content Include="Public\css\css\solid.min.css" />
+    <Content Include="Public\css\css\svg-with-js.css" />
+    <Content Include="Public\css\css\svg-with-js.min.css" />
+    <Content Include="Public\css\css\v4-shims.css" />
+    <Content Include="Public\css\css\v4-shims.min.css" />
+    <Content Include="Public\css\LayoutAd.css" />
+    <Content Include="Public\webfonts\fa-brands-400.svg" />
+    <Content Include="Public\webfonts\fa-regular-400.svg" />
+    <Content Include="Public\webfonts\fa-solid-900.svg" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AuthController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ComplainController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TicketController.cs" />
+    <Compile Include="Areas\Admin\Controllers\WeekReportController.cs" />
+    <Compile Include="Areas\Admin\Model\Login.cs" />
+    <Compile Include="Controllers\DatVeController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\TrangchuController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Library\MyString.cs" />
+    <Compile Include="Migrations\202111251423356_InitialCreate.cs" />
+    <Compile Include="Migrations\202111251423356_InitialCreate.designer.cs">
+      <DependentUpon>202111251423356_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111251438054_DropFieldExampleFromCategory.cs" />
+    <Compile Include="Migrations\202111251438054_DropFieldExampleFromCategory.designer.cs">
+      <DependentUpon>202111251438054_DropFieldExampleFromCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111251442501_DropFieldMetaDesFromCategory.cs" />
+    <Compile Include="Migrations\202111251442501_DropFieldMetaDesFromCategory.designer.cs">
+      <DependentUpon>202111251442501_DropFieldMetaDesFromCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111260438189_AddfieldMidAir.cs" />
+    <Compile Include="Migrations\202111260438189_AddfieldMidAir.designer.cs">
+      <DependentUpon>202111260438189_AddfieldMidAir.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111260453269_AddfieldDateTimeandMidAir.cs" />
+    <Compile Include="Migrations\202111260453269_AddfieldDateTimeandMidAir.designer.cs">
+      <DependentUpon>202111260453269_AddfieldDateTimeandMidAir.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111260514597_AddfieldDateTimeandMidair1.cs" />
+    <Compile Include="Migrations\202111260514597_AddfieldDateTimeandMidair1.designer.cs">
+      <DependentUpon>202111260514597_AddfieldDateTimeandMidair1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111260521140_DeleteonCategry.cs" />
+    <Compile Include="Migrations\202111260521140_DeleteonCategry.designer.cs">
+      <DependentUpon>202111260521140_DeleteonCategry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111260544101_AddWeekReport.cs" />
+    <Compile Include="Migrations\202111260544101_AddWeekReport.designer.cs">
+      <DependentUpon>202111260544101_AddWeekReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111260558057_UPdate.cs" />
+    <Compile Include="Migrations\202111260558057_UPdate.designer.cs">
+      <DependentUpon>202111260558057_UPdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111261216176_UpdateDay.cs" />
+    <Compile Include="Migrations\202111261216176_UpdateDay.designer.cs">
+      <DependentUpon>202111261216176_UpdateDay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111261250169_1.cs" />
+    <Compile Include="Migrations\202111261250169_1.designer.cs">
+      <DependentUpon>202111261250169_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111261336488_123.cs" />
+    <Compile Include="Migrations\202111261336488_123.designer.cs">
+      <DependentUpon>202111261336488_123.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111280639265_updatedbproduct1.cs" />
+    <Compile Include="Migrations\202111280639265_updatedbproduct1.designer.cs">
+      <DependentUpon>202111280639265_updatedbproduct1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111280641524_updateproductcategory1.cs" />
+    <Compile Include="Migrations\202111280641524_updateproductcategory1.designer.cs">
+      <DependentUpon>202111280641524_updateproductcategory1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111280733381_adddbticket.cs" />
+    <Compile Include="Migrations\202111280733381_adddbticket.designer.cs">
+      <DependentUpon>202111280733381_adddbticket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111280740216_updatedbticket.cs" />
+    <Compile Include="Migrations\202111280740216_updatedbticket.designer.cs">
+      <DependentUpon>202111280740216_updatedbticket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112020439383_addFieldDateInProduct.cs" />
+    <Compile Include="Migrations\202112020439383_addFieldDateInProduct.designer.cs">
+      <DependentUpon>202112020439383_addFieldDateInProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112100335249_updateTimeandDateofProduct.cs" />
+    <Compile Include="Migrations\202112100335249_updateTimeandDateofProduct.designer.cs">
+      <DependentUpon>202112100335249_updateTimeandDateofProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112100348025_addfieldDateTime.cs" />
+    <Compile Include="Migrations\202112100348025_addfieldDateTime.designer.cs">
+      <DependentUpon>202112100348025_addfieldDateTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112120540362_a.cs" />
+    <Compile Include="Migrations\202112120540362_a.designer.cs">
+      <DependentUpon>202112120540362_a.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112120806259_addmodeldatve.cs" />
+    <Compile Include="Migrations\202112120806259_addmodeldatve.designer.cs">
+      <DependentUpon>202112120806259_addmodeldatve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112131015245_ad.cs" />
+    <Compile Include="Migrations\202112131015245_ad.designer.cs">
+      <DependentUpon>202112131015245_ad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112131018189_1234.cs" />
+    <Compile Include="Migrations\202112131018189_1234.designer.cs">
+      <DependentUpon>202112131018189_1234.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112131906190_addbook.cs" />
+    <Compile Include="Migrations\202112131906190_addbook.designer.cs">
+      <DependentUpon>202112131906190_addbook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112131918273_updateclientid.cs" />
+    <Compile Include="Migrations\202112131918273_updateclientid.designer.cs">
+      <DependentUpon>202112131918273_updateclientid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112190421491_fieldPriceinDatVemodel.cs" />
+    <Compile Include="Migrations\202112190421491_fieldPriceinDatVemodel.designer.cs">
+      <DependentUpon>202112190421491_fieldPriceinDatVemodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112201025549_addfieldCreateDateinTicketModel.cs" />
+    <Compile Include="Migrations\202112201025549_addfieldCreateDateinTicketModel.designer.cs">
+      <DependentUpon>202112201025549_addfieldCreateDateinTicketModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112241353110_addstatusinticket.cs" />
+    <Compile Include="Migrations\202112241353110_addstatusinticket.designer.cs">
+      <DependentUpon>202112241353110_addstatusinticket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112260449599_dateandtimeinproduct.cs" />
+    <Compile Include="Migrations\202112260449599_dateandtimeinproduct.designer.cs">
+      <DependentUpon>202112260449599_dateandtimeinproduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112260456342_editdateinproduct.cs" />
+    <Compile Include="Migrations\202112260456342_editdateinproduct.designer.cs">
+      <DependentUpon>202112260456342_editdateinproduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112270543023_CreateTableComplain.cs" />
+    <Compile Include="Migrations\202112270543023_CreateTableComplain.designer.cs">
+      <DependentUpon>202112270543023_CreateTableComplain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112270600114_aaaaaa.cs" />
+    <Compile Include="Migrations\202112270600114_aaaaaa.designer.cs">
+      <DependentUpon>202112270600114_aaaaaa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112270602062_addfieldstatusincomplain.cs" />
+    <Compile Include="Migrations\202112270602062_addfieldstatusincomplain.designer.cs">
+      <DependentUpon>202112270602062_addfieldstatusincomplain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112270612196_EditFieldCCCDtoClientIDinComplainTable.cs" />
+    <Compile Include="Migrations\202112270612196_EditFieldCCCDtoClientIDinComplainTable.designer.cs">
+      <DependentUpon>202112270612196_EditFieldCCCDtoClientIDinComplainTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201021506370_addTableBill.cs" />
+    <Compile Include="Migrations\202201021506370_addTableBill.designer.cs">
+      <DependentUpon>202201021506370_addTableBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201030540472_delete.cs" />
+    <Compile Include="Migrations\202201030540472_delete.designer.cs">
+      <DependentUpon>202201030540472_delete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Bill.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Complain.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductCategory.cs" />
+    <Compile Include="Models\Ticket.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\WebBanVeMayBayDBContext.cs" />
+    <Compile Include="Models\WeekReport.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_LayoutAd.cshtml" />
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Areas\Admin\Views\Product\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Trash.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Trash.cshtml" />
+    <Content Include="Areas\Admin\Views\WeekReport\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\WeekReport\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\WeekReport\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\WeekReport\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\WeekReport\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_LayoutLogin.cshtml" />
+    <Content Include="Areas\Admin\Views\Login\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\Auth\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\Auth\Logout.cshtml" />
+    <Content Include="Areas\Admin\Views\Ticket\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Ticket\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Ticket\Filter.cshtml" />
+    <Content Include="Areas\Admin\Views\Complain\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Complain\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Complain\Filter.cshtml" />
+    <Content Include="Areas\Admin\Views\Ticket\Trash.cshtml" />
+    <Content Include="Areas\Admin\Views\Ticket\BillExport.cshtml" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Views\Shared\_LayoutSite.cshtml" />
+    <Content Include="Views\Trangchu\Index.cshtml" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Public\webfonts\fa-brands-400.eot" />
+    <Content Include="Public\webfonts\fa-brands-400.ttf" />
+    <Content Include="Public\webfonts\fa-brands-400.woff" />
+    <Content Include="Public\webfonts\fa-brands-400.woff2" />
+    <Content Include="Public\webfonts\fa-regular-400.eot" />
+    <Content Include="Public\webfonts\fa-regular-400.ttf" />
+    <Content Include="Public\webfonts\fa-regular-400.woff" />
+    <Content Include="Public\webfonts\fa-regular-400.woff2" />
+    <Content Include="Public\webfonts\fa-solid-900.eot" />
+    <Content Include="Public\webfonts\fa-solid-900.ttf" />
+    <Content Include="Public\webfonts\fa-solid-900.woff" />
+    <Content Include="Public\webfonts\fa-solid-900.woff2" />
+    <Content Include="Views\Trangchu\Search.cshtml" />
+    <Content Include="Views\Search\SearchResult.cshtml" />
+    <Content Include="Views\Trangchu\DatVe.cshtml" />
+    <Content Include="Views\DatVe\Index.cshtml" />
+    <Content Include="Views\DatVe\Confirm.cshtml" />
+    <Content Include="Views\DatVe\CreateTicket.cshtml" />
+    <Content Include="Views\Trangchu\Complain.cshtml" />
+    <Content Include="Views\Trangchu\TicketSearch.cshtml" />
+    <Content Include="Views\Trangchu\SearchTicketResult.cshtml" />
+    <Content Include="Views\Trangchu\Huyve.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Views\Base\" />
+    <Folder Include="Public\img\" />
+    <Folder Include="Public\js\" />
+    <Folder Include="Search\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202111251423356_InitialCreate.resx">
+      <DependentUpon>202111251423356_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111251438054_DropFieldExampleFromCategory.resx">
+      <DependentUpon>202111251438054_DropFieldExampleFromCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111251442501_DropFieldMetaDesFromCategory.resx">
+      <DependentUpon>202111251442501_DropFieldMetaDesFromCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111260438189_AddfieldMidAir.resx">
+      <DependentUpon>202111260438189_AddfieldMidAir.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111260453269_AddfieldDateTimeandMidAir.resx">
+      <DependentUpon>202111260453269_AddfieldDateTimeandMidAir.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111260514597_AddfieldDateTimeandMidair1.resx">
+      <DependentUpon>202111260514597_AddfieldDateTimeandMidair1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111260521140_DeleteonCategry.resx">
+      <DependentUpon>202111260521140_DeleteonCategry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111260544101_AddWeekReport.resx">
+      <DependentUpon>202111260544101_AddWeekReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111260558057_UPdate.resx">
+      <DependentUpon>202111260558057_UPdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111261216176_UpdateDay.resx">
+      <DependentUpon>202111261216176_UpdateDay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111261250169_1.resx">
+      <DependentUpon>202111261250169_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111261336488_123.resx">
+      <DependentUpon>202111261336488_123.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111280639265_updatedbproduct1.resx">
+      <DependentUpon>202111280639265_updatedbproduct1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111280641524_updateproductcategory1.resx">
+      <DependentUpon>202111280641524_updateproductcategory1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111280733381_adddbticket.resx">
+      <DependentUpon>202111280733381_adddbticket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111280740216_updatedbticket.resx">
+      <DependentUpon>202111280740216_updatedbticket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112020439383_addFieldDateInProduct.resx">
+      <DependentUpon>202112020439383_addFieldDateInProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112100335249_updateTimeandDateofProduct.resx">
+      <DependentUpon>202112100335249_updateTimeandDateofProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112100348025_addfieldDateTime.resx">
+      <DependentUpon>202112100348025_addfieldDateTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112120540362_a.resx">
+      <DependentUpon>202112120540362_a.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112120806259_addmodeldatve.resx">
+      <DependentUpon>202112120806259_addmodeldatve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112131015245_ad.resx">
+      <DependentUpon>202112131015245_ad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112131018189_1234.resx">
+      <DependentUpon>202112131018189_1234.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112131906190_addbook.resx">
+      <DependentUpon>202112131906190_addbook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112131918273_updateclientid.resx">
+      <DependentUpon>202112131918273_updateclientid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112190421491_fieldPriceinDatVemodel.resx">
+      <DependentUpon>202112190421491_fieldPriceinDatVemodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112201025549_addfieldCreateDateinTicketModel.resx">
+      <DependentUpon>202112201025549_addfieldCreateDateinTicketModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112241353110_addstatusinticket.resx">
+      <DependentUpon>202112241353110_addstatusinticket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112260449599_dateandtimeinproduct.resx">
+      <DependentUpon>202112260449599_dateandtimeinproduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112260456342_editdateinproduct.resx">
+      <DependentUpon>202112260456342_editdateinproduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112270543023_CreateTableComplain.resx">
+      <DependentUpon>202112270543023_CreateTableComplain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112270600114_aaaaaa.resx">
+      <DependentUpon>202112270600114_aaaaaa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112270602062_addfieldstatusincomplain.resx">
+      <DependentUpon>202112270602062_addfieldstatusincomplain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112270612196_EditFieldCCCDtoClientIDinComplainTable.resx">
+      <DependentUpon>202112270612196_EditFieldCCCDtoClientIDinComplainTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201021506370_addTableBill.resx">
+      <DependentUpon>202201021506370_addTableBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201030540472_delete.resx">
+      <DependentUpon>202201030540472_delete.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>65291</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44354/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
